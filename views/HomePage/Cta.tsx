@@ -26,7 +26,7 @@ export default function Cta() {
               </Button>
             </NextLink>
             <NextLink href="#whitepaper" passHref>
-              <OutlinedButton transparent>
+              <OutlinedButton>
                 Features <span>&rarr;</span>
               </OutlinedButton>
             </NextLink>

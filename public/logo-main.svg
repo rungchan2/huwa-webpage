@@ -1,6 +1,4 @@
-export default function Logo({ ...rest }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="53" viewBox="0 0 57 53" fill="none" {...rest}>
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="53" viewBox="0 0 57 53" fill="none" {...rest}>
       <path
         d="M22.99 27.46C22.99 27.46 24.84 23.31 28.12 23.42C31.4 23.53 32.86 27.46 32.86 27.46C32.86 27.46 40.15 31.5 37.68 36.09C35.21 40.68 28.77 38 28.12 37.66C27.47 37.32 22.09 40.46 18.95 36.99C15.81 33.51 20.18 29.81 22.99 27.46Z"
         fill="url(#paint0_linear_62_107)"
@@ -64,5 +62,3 @@ export default function Logo({ ...rest }) {
         </linearGradient>
       </defs>
     </svg>
-  );
-}

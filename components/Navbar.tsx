@@ -12,6 +12,7 @@ import Container from './Container';
 import Drawer from './Drawer';
 import { HamburgerIcon } from './HamburgerIcon';
 import Logo from './Logo';
+import LogoText from './LogoText';
 
 const ColorSwitcher = dynamic(() => import('../components/ColorSwitcher'), { ssr: false });
 
@@ -69,7 +70,8 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-            <Logo />
+            <Logo/>
+            <LogoText/>
           </LogoWrapper>
         </NextLink>
         <NavItemList>
@@ -88,7 +90,7 @@ export default function Navbar({ items }: NavbarProps) {
   );
 }
 
-function NavItem({ href, title, outlined }: SingleNavItem) {
+function NavItem({ href, title, outlined, faq }: SingleNavItem) {
   const { setIsModalOpened } = useNewsletterModalContext();
 
   function showNewsletterModal() {
@@ -97,6 +99,10 @@ function NavItem({ href, title, outlined }: SingleNavItem) {
 
   if (outlined) {
     return <CustomButton onClick={showNewsletterModal}>{title}</CustomButton>;
+  }
+
+  else if (faq) {
+    return <CustomButtonFaq brand>{title}</CustomButtonFaq>;
   }
 
   return (
@@ -109,6 +115,12 @@ function NavItem({ href, title, outlined }: SingleNavItem) {
 }
 
 const CustomButton = styled(Button)`
+  padding: 0.75rem 1.5rem;
+  line-height: 1.8;
+`;
+
+const CustomButtonFaq = styled(Button)`
+  margin-left: 2rem;
   padding: 0.75rem 1.5rem;
   line-height: 1.8;
 `;

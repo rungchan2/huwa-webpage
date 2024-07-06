@@ -20,13 +20,14 @@ import { NewsletterModalContextProvider, useNewsletterModalContext } from 'conte
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
-  { title: 'Awesome SaaS Features', href: '/features' },
-  { title: 'Pricing', href: '/pricing' },
-  { title: 'Contact', href: '/contact' },
-  { title: 'Sign up', href: '/sign-up', outlined: true },
+  { title: 'About', href: '/features' },
+  { title: 'Portfolio', href: '/pricing' },
+  { title: 'Price', href: '/contact' },
+  { title: '제작 상담하기', href: '/sign-up', outlined: true },
+  { title: '자주 묻는 질문', href: '/sign-up', faq: true },
 ];
 
-const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
+// const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -51,23 +52,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Providers>
         <Modals />
         <Navbar items={navItems} />
-        <TinaEditProvider
-          editMode={
-            <TinaCMS
-              query={pageProps.query}
-              variables={pageProps.variables}
-              data={pageProps.data}
-              isLocalClient={!process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
-              branch={process.env.NEXT_PUBLIC_EDIT_BRANCH}
-              clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
-              {...pageProps}
-            >
-              {(livePageProps: any) => <Component {...livePageProps} />}
-            </TinaCMS>
-          }
-        >
-          <Component {...pageProps} />
-        </TinaEditProvider>
+        {(livePageProps: any) => <Component {...livePageProps} />}
+        <Component {...pageProps} />
         <WaveCta />
         <Footer />
       </Providers>

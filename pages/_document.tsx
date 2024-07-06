@@ -2,7 +2,16 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
 
+/**
+ * Custom Document component for Next.js.
+ * This component is used to modify the initial HTML document that is served to the client.
+ */
 export default class MyDocument extends Document {
+  /**
+   * Retrieves the initial props for the document.
+   * @param ctx - The document context.
+   * @returns The initial props for the document.
+   */
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
@@ -28,6 +37,10 @@ export default class MyDocument extends Document {
     }
   }
 
+  /**
+   * Renders the document.
+   * @returns The rendered document.
+   */
   render() {
     return (
       <Html lang="en">

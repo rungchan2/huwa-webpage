@@ -10,25 +10,25 @@ export default function PricingTablesSection() {
       <SectionTitle>Flexible pricing for agile teams</SectionTitle>
       <AutofitGrid>
         <PricingCard
-          title="free"
-          description="Give us a try for free"
+          title="MVP 랜딩페이지"
+          description="빠르게 MVP를 테스트할 수 있는 서비스"
           benefits={['1 seat', '1 active project', 'Ulimited viewers', '10 blocks']}
         >
-          $0<span>/month</span>
+          <span>(VAT 포함)</span>55만원~
         </PricingCard>
         <PricingCard
-          title="Starter"
-          description="Best for individual desginers"
+          title="일반형 홈페이지"
+          description="기업, 기관, 사업자용 소개 홈페이지"
           benefits={['1 seat', '3 active project', 'Ulimited viewers', '100 blocks', 'CSV Downloader', 'Password protection']}
-          isOutlined
+          
         >
-          $29<span>/month</span>
+          <span>(VAT 포함)</span>132만원~
         </PricingCard>
         <PricingCard
-          title="Premium"
-          description="Get your team together"
+          title="브랜드 홈페이지"
+          description="브랜드 CI 개발 및 통일성을 갖춘 홈페이지 제작"
           benefits={[
-            '10 seat',
+            '❚ 페이지',
             '10 active project',
             'Ulimited viewers',
             'Unlimited blocks',
@@ -37,7 +37,7 @@ export default function PricingTablesSection() {
             'Customization',
           ]}
         >
-          $79<span>/month</span>
+          <span>(VAT 포함)</span>550만원~
         </PricingCard>
       </AutofitGrid>
     </Wrapper>

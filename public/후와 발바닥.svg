@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 56.68 52.28">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: url(#_무제_그라디언트_13);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-4);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-5 {
+        fill: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient id="_무제_그라디언트_13" data-name="무제 그라디언트 13" x1="17.87" y1="31.09" x2="38.19" y2="31.09" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#f4da24"/>
+      <stop offset=".45" stopColor="#f18d1b"/>
+      <stop offset=".54" stopColor="#ef8225"/>
+      <stop offset=".69" stopColor="#ed6741"/>
+      <stop offset=".9" stopColor="#e83b6e"/>
+      <stop offset="1" stopColor="#e62388"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient" x1="76.7" y1="98.69" x2="84.16" y2="98.69" gradientTransform="translate(3.57 -106.25) rotate(25.37)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#f4da24"/>
+      <stop offset=".45" stopColor="#f18d1b"/>
+      <stop offset=".54" stopColor="#ef8225"/>
+      <stop offset=".69" stopColor="#ed6741"/>
+      <stop offset=".9" stopColor="#e83b6e"/>
+      <stop offset="1" stopColor="#e62388"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="95.68" y1="113.24" x2="103.14" y2="113.24" gradientTransform="translate(8.76 -123.01) rotate(29.39)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="460.45" y1="-83.25" x2="467.92" y2="-83.25" gradientTransform="translate(478.03 -106.25) rotate(154.63) scale(1 -1)" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="465.92" y1="-95.28" x2="473.38" y2="-95.28" gradientTransform="translate(472.85 -123.01) rotate(150.61) scale(1 -1)" xlink:href="#linear-gradient"/>
+  </defs>
+  <path class="cls-2" d="M22.99,27.46s1.85-4.15,5.13-4.04,4.74,4.04,4.74,4.04c0,0,7.29,4.04,4.82,8.63s-8.91,1.91-9.56,1.57-6.03,2.8-9.17-.67c-3.14-3.48,1.23-7.18,4.04-9.53Z"/>
+  <path class="cls-1" d="M36.61,20.52c-.88,1.86-3.11,2.66-4.97,1.77s-2.66-3.11-1.77-4.97,6.12-4.92,6.4-4.79c.32-.67,1.23,6.12.34,7.99Z"/>
+  <path class="cls-4" d="M42.22,27.76c-1.01,1.8-3.29,2.43-5.08,1.42s-2.43-3.29-1.42-5.08,6.45-4.48,6.72-4.33c.36-.64.79,6.19-.22,7.99Z"/>
+  <path class="cls-5" d="M20.3,20.52c.88,1.86,3.11,2.66,4.97,1.77s2.66-3.11,1.77-4.97-6.12-4.92-6.4-4.79c-.32-.67-1.23,6.12-.34,7.99Z"/>
+  <path class="cls-3" d="M14.46,27.76c1.01,1.8,3.29,2.43,5.08,1.42,1.8-1.01,2.43-3.29,1.42-5.08-1.01-1.8-6.45-4.48-6.72-4.33-.36-.64-.79,6.19.22,7.99Z"/>
+</svg>

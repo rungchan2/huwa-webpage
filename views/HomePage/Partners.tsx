@@ -19,7 +19,8 @@ const PARTNER_LOGOS = [
 export default function Partners() {
   return (
     <PartnersWrapper>
-      <Title>official partners with</Title>
+      <Title>이미 수많은 기업이<br />
+      후와 스튜디오를 선택했습니다.</Title>
       <Swiper
         modules={[Autoplay]}
         slidesPerView={6}
@@ -49,12 +50,10 @@ function normalizePartnerLogoName(logo: string) {
 }
 
 const Title = styled.h3`
-  font-size: 1.3rem;
+  font-size: 5.3rem;
   letter-spacing: 0.02em;
-  line-height: 0;
-  text-transform: uppercase;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
   opacity: 0.8;
 
   ${media('<=desktop')} {

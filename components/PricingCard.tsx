@@ -19,7 +19,6 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
       <Title>{title}</Title>
       <Description>{description}</Description>
       <PriceContainer>
-        <Price>{children}</Price>
         {isAnyBenefitPresent && (
           <CustomRichText>
             <ul>
@@ -30,7 +29,8 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
           </CustomRichText>
         )}
       </PriceContainer>
-      <CustomButton>Get started</CustomButton>
+      <Price>{children}</Price>
+      <CustomButton brand>견적서 요청</CustomButton>
     </Wrapper>
   );
 }
@@ -39,6 +39,8 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
   display: flex;
   flex-direction: column;
   padding: 3rem;
+  border-radius: 2rem;
+  border: 1px solid #D9D9D9;
   background: rgb(var(--cardBackground));
   box-shadow: ${(p) => (p.isOutlined ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
   transform: ${(p) => (p.isOutlined ? 'scale(1.1)' : 'scale(1.0)')};
@@ -58,15 +60,19 @@ const Wrapper = styled.div<{ isOutlined?: boolean }>`
 const Title = styled.h3`
   font-size: 4rem;
   text-transform: capitalize;
+  text-align: left;
 `;
 
 const Description = styled.p`
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  text-align: left;
 `;
 
 const PriceContainer = styled.div`
-  margin: auto;
-
+  flex-grow: 1; // Add this line
+  display: flex; // Add this line
+  flex-direction: column; // Add this line
+  margin: auto 0;
   & > *:not(:first-child) {
     margin-top: 2rem;
   }
@@ -74,7 +80,7 @@ const PriceContainer = styled.div`
 
 const Price = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: flex-end;
   font-size: 4rem;
   line-height: 1;
@@ -87,12 +93,22 @@ const Price = styled.div`
 `;
 
 const CustomRichText = styled(RichText)`
+  flex-grow: 1; // Add this line
+  display: flex; // Add this line
+  flex-direction: column; // Add this line
+  justify-content: top; // Add this line
   li {
-    margin: auto;
-    width: fit-content;
+    text-align: left;
   }
+  border-bottom: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
+  line-height: 2;
+  padding: 1rem 0; // Add some padding
+  margin: 1rem 0; // Add some margin
 `;
 
 const CustomButton = styled(Button)`
   width: 100%;
+  font-size: 2rem;
+  color: rgb(var(--text));
 `;

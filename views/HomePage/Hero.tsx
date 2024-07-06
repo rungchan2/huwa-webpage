@@ -14,18 +14,17 @@ export default function Hero() {
   return (
     <HeroWrapper>
       <Contents>
-        <CustomOverTitle>the coolest, saas product you have ever seen</CustomOverTitle>
-        <Heading>Make your life easier with our SaaS</Heading>
+        <Heading>HUWA STUDIO</Heading>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, tempora qui. Explicabo voluptate iure ipsum molestias
-          repudiandae perspiciatis nostrum praesentium, unde pariatur tempora magni rem. Necessitatibus facilis obcaecati ratione.
+        후와 스튜디오는 모든 브랜드가 호랑이가 포효하듯
+        울림을 주는 브랜드로 나아갈 수 있다고 믿습니다.
         </Description>
         <CustomButtonGroup>
           <Button onClick={() => setIsModalOpened(true)}>
             Subscribe to the newsletter <span>&rarr;</span>
           </Button>
           <NextLink href="#whitepaper" passHref>
-            <Button transparent>
+            <Button>
               Features <span>&rarr;</span>
             </Button>
           </NextLink>

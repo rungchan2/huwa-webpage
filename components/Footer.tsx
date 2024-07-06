@@ -3,6 +3,8 @@ import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
+import LogoWhite from 'components/LogoWhite';
+import LogowhiteText from 'components/LogoWhiteText';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -11,38 +13,23 @@ type FooterItems = SingleFooterList[];
 
 const footerItems: FooterItems = [
   {
-    title: 'Company',
+    title: 'Information',
     items: [
-      { title: 'Privacy Policy', href: '/privacy-policy' },
-      { title: 'Cookies Policy', href: '/cookies-policy' },
+      { title: '회사명 : 몬스터 협동조합', href: '/' },
+      { title: '대표자명 : 강승원', href: '/' },
+      { title: '사업자 등록번호 : 345-55-24342', href: '/' },
     ],
   },
   {
-    title: 'Product',
+    title: 'Address',
     items: [
-      { title: 'Features', href: '/features' },
-      { title: 'Something', href: '/something' },
-      { title: 'Something else', href: '/something-else' },
-      { title: 'And something else', href: '/and-something-else' },
+      { title: '서울시 서대문구 이화로 88길', href: '/' },
+      { title: '우편번호 03766', href: '/' },
     ],
   },
   {
-    title: 'Knowledge',
-    items: [
-      { title: 'Blog', href: '/blog' },
-      { title: 'Contact', href: '/contact' },
-      { title: 'FAQ', href: '/faq' },
-      { title: 'Help Center', href: '/help-center' },
-    ],
-  },
-  {
-    title: 'Something',
-    items: [
-      { title: 'Features2', href: '/features2' },
-      { title: 'Something2', href: '/something2' },
-      { title: 'Something else2', href: '/something-else2' },
-      { title: 'And something else2', href: '/and-something-else2' },
-    ],
+    title: 'Contact',
+    items: [{ title: 'monster.coop8@gmail.com', href: '/' }],
   },
 ];
 
@@ -51,6 +38,10 @@ export default function Footer() {
     <FooterWrapper>
       <Container>
         <ListContainer>
+          <LogoContainer>
+            <LogoWhite/>
+            <LogowhiteText/>
+          </LogoContainer>
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
@@ -59,23 +50,23 @@ export default function Footer() {
           <ShareBar>
             <NextLink href="https://www.twitter.com/my-saas-startup" passHref>
               <a>
-                <TwitterIcon size={50} round={true} />
+                <TwitterIcon size={30} round={true} />
               </a>
             </NextLink>
 
             <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
               <a>
-                <FacebookIcon size={50} round={true} />
+                <FacebookIcon size={30} round={true} />
               </a>
             </NextLink>
 
             <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
               <a>
-                <LinkedinIcon size={50} round={true} />
+                <LinkedinIcon size={30} round={true} />
               </a>
             </NextLink>
           </ShareBar>
-          <Copyright>&copy; Copyright 2021 My Saas Startup</Copyright>
+          <Copyright>&copy; Copyright 몬스터 협동조합</Copyright>
         </BottomBar>
       </Container>
     </FooterWrapper>
@@ -102,6 +93,14 @@ function ListItem({ title, href }: SingleFooterListItem) {
     </ListItemWrapper>
   );
 }
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  gap: 1rem;
+  padding: 0 10rem 0 0;
+`;
 
 const FooterWrapper = styled.div`
   padding-top: 10rem;
@@ -157,6 +156,7 @@ const ShareBar = styled.div`
   & > *:not(:first-child) {
     margin-left: 1rem;
   }
+    display: none;
 `;
 
 const Copyright = styled.p`
@@ -167,7 +167,7 @@ const Copyright = styled.p`
 const BottomBar = styled.div`
   margin-top: 6rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
 
   ${media('<=tablet')} {

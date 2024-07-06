@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   --modalBackground: 251,251,253;
   --errorColor: 207,34,46;
   --logoColor: #243A5A;
+  --logoColorText: #3F3B3A;
 }
 
 .next-dark-theme {
@@ -41,9 +42,12 @@ export const GlobalStyle = createGlobalStyle`
   --modalBackground: 26,32,44;
   --errorColor: 207,34,46;
   --logoColor: #fff;
+  --logoColorText: #fff;
 }
 
 :root {
+  --huwaBrand: #FFD166;
+
   --font: 'Poppins', sans-serif;
   
   --shadow-md: 0 2px 4px 0 rgb(12 0 46 / 4%);

@@ -21,14 +21,14 @@ export default function WaveCta() {
       </svg>
       <CtaWrapper>
         <Container>
-          <Title>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus delectus?</Title>
+          <Title>후와 스튜디오와 함께 성장하세요.</Title>
           <CustomButtonGroup>
-            <Button onClick={() => setIsModalOpened(true)}>
+            {/* <Button onClick={() => setIsModalOpened(true)}>
               Subscribe to the newsletter <span>&rarr;</span>
-            </Button>
+            </Button> */}
             <NextLink href="/features" passHref>
-              <OutlinedButton transparent>
-                Features <span>&rarr;</span>
+              <OutlinedButton brand>
+              제작 상담하기
               </OutlinedButton>
             </NextLink>
           </CustomButtonGroup>
@@ -54,8 +54,9 @@ const Title = styled(SectionTitle)`
 `;
 
 const OutlinedButton = styled(Button)`
-  border: 1px solid rgb(var(--textSecondary));
-  color: rgb(var(--textSecondary));
+  font-size: 1.6rem;
+  color: rgb(var(--secondary));
+  padding: 1.5rem 4.5rem;
 `;
 
 const CustomButtonGroup = styled(ButtonGroup)`
