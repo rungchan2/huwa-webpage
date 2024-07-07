@@ -10,30 +10,36 @@ interface BasicCardProps {
 export default function BasicCard({ title, description, imageUrl }: BasicCardProps) {
   return (
     <Card>
-      <NextImage src={imageUrl} width={128} height={128} alt={title} />
-      <Title>{title}</Title>
-      <Description>{description}</Description>
+      <ImageWrapper>
+        <NextImage src={imageUrl} layout="fill" objectFit="fill" alt={title} />
+      </ImageWrapper>
+      <TextWrapper>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+      </TextWrapper>
     </Card>
   );
 }
 
 const Card = styled.div`
+font-size: 1.8rem;
   display: flex;
-  padding: 2.5rem;
-  background: rgb(var(--cardBackground));
-  box-shadow: var(--shadow-md);
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: left;
   width: 100%;
-  border-radius: 0.6rem;
-  color: rgb(var(--text));
-  font-size: 1.6rem;
+  max-width: 300px;
+  margin: 1rem;
+`;
 
-  & > *:not(:first-child) {
-    margin-top: 1rem;
-  }
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+`;
+
+const TextWrapper = styled.div`
+  text-align: left;
+  margin-top: 1rem;
 `;
 
 const Title = styled.div`
@@ -41,5 +47,6 @@ const Title = styled.div`
 `;
 
 const Description = styled.div`
-  opacity: 0.6;
+  color: #ccc;
+  margin-top: 0.5rem;
 `;

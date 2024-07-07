@@ -90,7 +90,7 @@ export default function Navbar({ items }: NavbarProps) {
   );
 }
 
-function NavItem({ href, title, outlined, faq }: SingleNavItem) {
+function NavItem({ href, title, outlined, faq, price}: SingleNavItem) {
   const { setIsModalOpened } = useNewsletterModalContext();
 
   function showNewsletterModal() {
@@ -98,7 +98,16 @@ function NavItem({ href, title, outlined, faq }: SingleNavItem) {
   }
 
   if (outlined) {
-    return <CustomButton onClick={showNewsletterModal}>{title}</CustomButton>;
+    return <CustomButton href='/contact'>{title}</CustomButton>;
+  }
+  else if (price) {
+    return (
+      <NavItemWrapper outlined={outlined}>
+      <NextLink href='/#pricetable' passHref>
+        <a>{title}</a>
+      </NextLink>
+    </NavItemWrapper>
+    );
   }
 
   else if (faq) {

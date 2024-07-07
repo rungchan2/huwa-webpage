@@ -10,6 +10,24 @@ import { createGlobalStyle } from 'styled-components';
 // }
 
 export const GlobalStyle = createGlobalStyle`
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'Pretendard-Thin';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+  }
 
 .next-light-theme {
   --background: 251,251,253;
@@ -47,8 +65,10 @@ export const GlobalStyle = createGlobalStyle`
 
 :root {
   --huwaBrand: #FFD166;
+  --huwaBrandRgb: 255,209,102;
+  --black: #000;
 
-  --font: 'Poppins', sans-serif;
+  --font: 'Pretendard-Regular', sans-serif;
   
   --shadow-md: 0 2px 4px 0 rgb(12 0 46 / 4%);
   --shadow-lg: 0 10px 14px 0 rgb(12 0 46 / 6%);

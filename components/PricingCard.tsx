@@ -23,14 +23,28 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
           <CustomRichText>
             <ul>
               {benefits.map((singleBenefit, idx) => (
-                <li key={idx}>{singleBenefit}</li>
+                <li
+                  key={idx}
+                  className={
+                    singleBenefit.startsWith('페이지') ||
+                    singleBenefit.startsWith('섹션 추가') ||
+                    singleBenefit.startsWith('서비스') ||
+                    singleBenefit.startsWith('제작기간')
+                      ? 'highlight'
+                      : ''
+                  }
+                >
+                  {singleBenefit}
+                </li>
               ))}
             </ul>
           </CustomRichText>
         )}
       </PriceContainer>
       <Price>{children}</Price>
+      <ButtonContainer>
       <CustomButton brand>견적서 요청</CustomButton>
+      </ButtonContainer>
     </Wrapper>
   );
 }
@@ -38,9 +52,9 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
 const Wrapper = styled.div<{ isOutlined?: boolean }>`
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: 3.5rem;
   border-radius: 2rem;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   background: rgb(var(--cardBackground));
   box-shadow: ${(p) => (p.isOutlined ? 'var(--shadow-lg)' : 'var(--shadow-md)')};
   transform: ${(p) => (p.isOutlined ? 'scale(1.1)' : 'scale(1.0)')};
@@ -69,9 +83,9 @@ const Description = styled.p`
 `;
 
 const PriceContainer = styled.div`
-  flex-grow: 1; // Add this line
-  display: flex; // Add this line
-  flex-direction: column; // Add this line
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   margin: auto 0;
   & > *:not(:first-child) {
     margin-top: 2rem;
@@ -85,6 +99,7 @@ const Price = styled.div`
   font-size: 4rem;
   line-height: 1;
   font-weight: bold;
+  gap: 2rem;
 
   span {
     font-size: 2rem;
@@ -93,22 +108,42 @@ const Price = styled.div`
 `;
 
 const CustomRichText = styled(RichText)`
-  flex-grow: 1; // Add this line
-  display: flex; // Add this line
-  flex-direction: column; // Add this line
-  justify-content: top; // Add this line
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
   li {
     text-align: left;
+    &::before {
+      color: rgb(var(--huwaBrandRgb));
+    }
+    &.highlight::before {
+      content: '❚'; // 원하는 내용을 여기에 추가하세요.
+      color: rgb(var(--huwaBrandRgb));
+      margin-right: 0.5rem; // 아이콘과 텍스트 사이의 간격을 조정합니다.
+    }
+    &.highlight {
+      font-weight: bold; // 강조된 항목의 텍스트를 bold로 만듭니다.
+    }
   }
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #d9d9d9;
   line-height: 2;
-  padding: 1rem 0; // Add some padding
-  margin: 1rem 0; // Add some margin
+  padding: 1rem 0;
+  margin: 1rem 0;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 `;
 
 const CustomButton = styled(Button)`
-  width: 100%;
-  font-size: 2rem;
+  width: 50%;
+  font-size: 1.8rem;
   color: rgb(var(--text));
+  border-radius: 1rem;
+  padding: 1.4rem 2rem;
+  margin-top: 1.5rem;
 `;

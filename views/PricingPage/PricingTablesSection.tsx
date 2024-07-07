@@ -1,26 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
+import BasicSection from 'components/BasicSection';
 import PricingCard from 'components/PricingCard';
-import SectionTitle from 'components/SectionTitle';
 
 export default function PricingTablesSection() {
   return (
     <Wrapper>
-      <SectionTitle>Flexible pricing for agile teams</SectionTitle>
+      <BasicSection imageUrl='' title='MVP, 홈페이지, 브랜드' title2='원스톱으로 해결하세요.' overTitle='비용 안내'>
+        <p>투명한 가격 정찰제로 예산에 맞는 플랜을 선택하세요.</p>
+      </BasicSection>
       <AutofitGrid>
         <PricingCard
           title="MVP 랜딩페이지"
           description="빠르게 MVP를 테스트할 수 있는 서비스"
-          benefits={['1 seat', '1 active project', 'Ulimited viewers', '10 blocks']}
+          benefits={[
+            '페이지',
+            '메인 1페이지 (반응형)',
+            '섹션 4개',
+            '섹션 추가',
+            '8만원 ~',
+            '서비스',
+            '[디자이너와 협업]',
+            '도메인 연결',
+            '사이트 등록 (네이버/구글)',
+            '제작기간 : 영업일 5일',
+          ]}
         >
           <span>(VAT 포함)</span>55만원~
         </PricingCard>
         <PricingCard
           title="일반형 홈페이지"
           description="기업, 기관, 사업자용 소개 홈페이지"
-          benefits={['1 seat', '3 active project', 'Ulimited viewers', '100 blocks', 'CSV Downloader', 'Password protection']}
-          
+          benefits={[
+            '페이지',
+            '메인 1페이지 (반응형)',
+            '서브 5페이지 (반응형)',
+            '10만원 ~',
+            '[디자이너와 협업]',
+            '모바일 최적화',
+            '도메인 연결',
+            '사이트 등록 (네이버/구글)',
+            '제작기간',
+            '영업일 14일',
+          ]}
         >
           <span>(VAT 포함)</span>132만원~
         </PricingCard>
@@ -28,13 +51,18 @@ export default function PricingTablesSection() {
           title="브랜드 홈페이지"
           description="브랜드 CI 개발 및 통일성을 갖춘 홈페이지 제작"
           benefits={[
-            '❚ 페이지',
-            '10 active project',
-            'Ulimited viewers',
-            'Unlimited blocks',
-            'CSV Downloader',
-            'Password protection',
-            'Customization',
+            '페이지',
+            '메인 1페이지 (반응형)',
+            '서브 10페이지 (반응형)',
+            '섹션 추가',
+            '30만원 ~',
+            '서비스',
+            '브랜드 CI 개발',
+            '모바일 최적화',
+            '도메인 연결',
+            '사이트 등록 (네이버/구글)',
+            '제작기간',
+            '영업일 4주 - 협의',
           ]}
         >
           <span>(VAT 포함)</span>550만원~
@@ -46,6 +74,6 @@ export default function PricingTablesSection() {
 
 const Wrapper = styled.div`
   & > *:not(:first-child) {
-    margin-top: 8rem;
+    margin-top: 4rem;
   }
 `;

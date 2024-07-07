@@ -1,35 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from 'components/Logo';
 import Container from 'components/Container';
+import Logo from 'components/Logo';
 
 export default function HeroNew() {
   return (
     <ContainerDark>
-    <StudioWrapper>
-      <Circle size="large" />
-      <Circle size="small" />
-      <LogoCenter/>
-      <Heading>HUWA STUDIO</Heading>
-      <Description>
-        후와 스튜디오는 모든 브랜드가 호랑이가 포효하듯
-        울림을 주는 브랜드로 나아갈 수 있다고 믿습니다.
-      </Description>
-    </StudioWrapper>
+      <StudioWrapper>
+        <Circle size="large" />
+        <Circle size="small" />
+        <LogoCenter />
+        <Heading>HUWA STUDIO</Heading>
+        <Description>
+          후와 스튜디오는 모든 브랜드가 호랑이가 포효하듯
+          <br />
+          울림을 주는 브랜드로 나아갈 수 있다고 믿습니다.
+        </Description>
+      </StudioWrapper>
     </ContainerDark>
   );
 }
+
 const ContainerDark = styled(Container)`
-  background-color: #000;
+  height: 100vh;
+  background-color: var(--black);
   color: white;
+  padding: 5rem 0;
 `;
 
 const StudioWrapper = styled.div`
-background-color: #000;
+  background-color: #000;
   position: relative;
-  height: 100vh;
+  height: 100%;
   color: white;
   font-family: Arial, sans-serif;
+  overflow: hidden;
 `;
 
 type CircleProps = {
@@ -40,17 +45,23 @@ const Circle = styled.div<CircleProps>`
   position: absolute;
   border: 1px solid white;
   border-radius: 50%;
-  ${({ size }) => size === 'large' && `
-    width: 100%;
+  ${({ size }) =>
+    size === 'large' &&
+    `
     height: 100%;
     aspect-ratio: 1/1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   `}
-  ${({ size }) => size === 'small' && `
-    width: 80%;
-    height: 80%;
-    top: 10%;
-    left: 10%;
+  ${({ size }) =>
+    size === 'small' &&
+    `
     aspect-ratio: 1/1;
+    height: 60%;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
   `}
 `;
 
@@ -59,26 +70,34 @@ const LogoCenter = styled(Logo)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
+  width: 400px;
+  height: 400px;
 `;
 
 const Heading = styled.h1`
+  display: inline-block;
   position: absolute;
-  width: 100%;
+  background-color: rgba(0, 0, 0, 1);
   text-align: center;
-  top: 33.3%;
-  transform: translateY(-50%);
-  font-size: 2em;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 8rem;
   margin: 0;
+  padding: 1rem;
 `;
 
 const Description = styled.p`
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 1);
   position: absolute;
-  width: 100%;
+  line-height: 2;
   text-align: center;
-  bottom: -60px;
-  font-size: 0.9em;
-  margin: 5px 0;
+  bottom: 23%;
+  transform: translate(-50%, 50%);
+  left: 50%;
+  font-size: 2.25rem;
+  margin: 0;
   white-space: pre-line;
+  padding: 1rem;
 `;

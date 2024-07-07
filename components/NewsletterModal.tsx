@@ -8,8 +8,10 @@ import Button from './Button';
 import CloseIcon from './CloseIcon';
 import Container from './Container';
 import Input from './Input';
+
 import MailSentState from './MailSentState';
 import Overlay from './Overlay';
+
 
 export interface NewsletterModalProps {
   onClose: () => void;

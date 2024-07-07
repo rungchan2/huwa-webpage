@@ -9,19 +9,23 @@ import RichText from './RichText';
 export interface BasicSectionProps {
   imageUrl: string;
   title: string;
+  title2: string;
   overTitle: string;
   reversed?: boolean;
 }
 
-export default function BasicSection({ imageUrl, title, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
+export default function BasicSection({ imageUrl, title, title2, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
   return (
     <BasicSectionWrapper reversed={reversed}>
-      <ImageContainer>
-        <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" />
-      </ImageContainer>
+      {imageUrl ? (
+        <ImageContainer>
+          <NextImage src={imageUrl} alt={title} layout="fill" objectFit="cover" />
+        </ImageContainer>
+      ) : null}
       <ContentContainer>
         <CustomOverTitle>{overTitle}</CustomOverTitle>
-        <Title>{title}</Title>
+        <Title>{title}</Title><br/>
+        {title2 ? <Title2>{title2}</Title2> : null}
         <RichText>{children}</RichText>
       </ContentContainer>
     </BasicSectionWrapper>
@@ -29,21 +33,41 @@ export default function BasicSection({ imageUrl, title, overTitle, reversed, chi
 }
 
 const Title = styled.h1`
-  font-size: 5.2rem;
+  font-size: 4rem;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1;
+  letter-spacing: -0.03em;
+
+  ${media('<=tablet')} {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+const Title2 = styled.h1`
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1;
   margin-bottom: 4rem;
   letter-spacing: -0.03em;
 
   ${media('<=tablet')} {
-    font-size: 4.6rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
   }
 `;
 
 const CustomOverTitle = styled(OverTitle)`
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
+  font-size: 2.25rem;
+  color: var(--huwaBrand);
+
+  &::before {
+    display: none;
+  }
 `;
+export { CustomOverTitle };
+
 
 const ImageContainer = styled.div`
   flex: 1;

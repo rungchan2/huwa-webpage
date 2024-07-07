@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { media } from 'utils/media';
 
 const RichText = styled.div`
-  font-size: 1.8rem;
+  font-size: 2.25rem;
   opacity: 0.8;
   line-height: 1.6;
 
@@ -22,13 +22,10 @@ const RichText = styled.div`
 
       &::before {
         position: absolute;
-        content: 'L';
         left: 0;
         top: 0;
         text-align: center;
-        color: rgb(var(--primary));
-        font-family: arial;
-        transform: scaleX(-1) rotate(-35deg);
+        color: rgb(var(--huwaBrandRgb));
       }
     }
   }

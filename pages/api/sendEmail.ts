@@ -5,18 +5,23 @@ const sgMail = require('@sendgrid/mail');
 export default async function SendEmail(req: NextApiRequest, res: NextApiResponse) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-  const { subject, description, email, name } = req.body;
+  const { subject, company, description, email, name, contact, url, referenceSite, meeting } = req.body;
   const referer = req.headers.referer;
 
   const content = {
-    to: ['contact@bstefanski.com'],
-    from: 'contact@bstefanski.com',
-    subject: subject,
+    to: {email},
+    from: 'leeh09077@gmail.com',
+    subject: subject || 'No subject',
     text: description,
     html: `<div>
     <h1>Name: ${name}</h1>
     <h1>E-mail: ${email}</h1>
-    <p>${description}</p>
+    <p>설명${description}</p>
+    <p>회사${company}</p>
+    <p>연락처${contact}</p>
+    <p>url${url}</p>
+    <p>레퍼런스 URL${referenceSite}</p>
+    <p>미팅 여부${meeting}</p>
     <p>Sent from: ${referer || 'Not specified or hidden'}`,
   };
 

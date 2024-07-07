@@ -20,14 +20,14 @@ import { NewsletterModalContextProvider, useNewsletterModalContext } from 'conte
 import { NavItems } from 'types';
 
 const navItems: NavItems = [
-  { title: 'About', href: '/features' },
-  { title: 'Portfolio', href: '/pricing' },
-  { title: 'Price', href: '/contact' },
-  { title: '제작 상담하기', href: '/sign-up', outlined: true },
-  { title: '자주 묻는 질문', href: '/sign-up', faq: true },
+  { title: 'Portfolio', href: '/portfolio' },
+  { title: 'Price', href: '#pricetable', price: true},
+  { title: '제작 상담하기', href: '/contact', outlined: true },
+  { title: '자주 묻는 질문', href: '/', faq: true },
 ];
 
-// const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
+
+const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Providers>
         <Modals />
         <Navbar items={navItems} />
+        
         {(livePageProps: any) => <Component {...livePageProps} />}
         <Component {...pageProps} />
         <WaveCta />
