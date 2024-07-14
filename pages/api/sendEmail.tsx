@@ -1,7 +1,6 @@
 // import sgMail from '@sendgrid/mail';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {SENDGRID_API_KEY} from '../../config/index';
-require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 
 export default async function SendEmail(req: NextApiRequest, res: NextApiResponse) {
