@@ -21,14 +21,19 @@ interface EmailPayload {
 }
 
 export default function FormSection() {
+  // 이메일 전송 성공 여부를 저장하는 상태 변수
   const [hasSuccessfullySentMail, setHasSuccessfullySentMail] = useState(false);
+  // 이메일 전송 실패 여부를 저장하는 상태 변수
   const [hasErrored, setHasErrored] = useState(false);
+  // react-hook-form 라이브러리의 register, handleSubmit, formState을 가져옴
   const { register, handleSubmit, formState } = useForm();
+  // formState에서 필요한 상태 변수들을 추출
   const { isSubmitSuccessful, isSubmitting, isSubmitted, errors } = formState;
+  console.log (isSubmitSuccessful, isSubmitting, isSubmitted, errors)
 
   async function onSubmit(payload: EmailPayload) {
     try {
-      const res = await fetch('/api/sendEmail', {
+      const res = await fetch('../../pages/api.', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,15 +126,15 @@ export default function FormSection() {
                 <label htmlFor="mvp">MVP 랜딩페이지</label>
               </ServiceOption>
               <ServiceOption>
-                <input type="radio" id="fullpage" value="일반형 홈페이지" {...register('service', { required: true })} />
+                <input type="radio" id="fullpage" value="일반형 홈페이지" {...register('service', )} />
                 <label htmlFor="fullpage">일반형 홈페이지</label>
               </ServiceOption>
               <ServiceOption>
-                <input type="radio" id="brand" value="브랜드 홈페이지" {...register('service', { required: true })} />
+                <input type="radio" id="brand" value="브랜드 홈페이지" {...register('service',)} />
                 <label htmlFor="brand">브랜드 홈페이지</label>
               </ServiceOption>
               <ServiceOption>
-                <input type="radio" id="other" value="기타 요청" {...register('service', { required: true })} />
+                <input type="radio" id="other" value="기타 요청" {...register('service',)} />
                 <label htmlFor="other">기타 요청</label>
               </ServiceOption>
             </ServiceOptions>
@@ -166,11 +171,11 @@ export default function FormSection() {
           <MeetingOptions>
             <MeetingLabel>사전 협의 미팅 여부*</MeetingLabel>
             <MeetingOption>
-              <input type="radio" id="meeting-yes" value="미팅 요청" {...register('meeting', { required: true })} />
+              <input type="radio" id="meeting-yes" value="미팅 요청" {...register('meeting',)} />
               <label htmlFor="meeting-yes">미팅 요청</label>
             </MeetingOption>
             <MeetingOption>
-              <input type="radio" id="meeting-no" value="미요청" {...register('meeting', { required: true })} />
+              <input type="radio" id="meeting-no" value="미요청" {...register('meeting',)} />
               <label htmlFor="meeting-no">미요청</label>
             </MeetingOption>
           </MeetingOptions>

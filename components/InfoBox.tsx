@@ -1,6 +1,6 @@
 import React from 'react';
-import { media } from 'utils/media';
 import styled from 'styled-components';
+import { media } from 'utils/media';
 import Container from './Container';
 
 interface InfoBoxProps {

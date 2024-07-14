@@ -70,8 +70,8 @@ export default function Navbar({ items }: NavbarProps) {
       <Content>
         <NextLink href="/" passHref>
           <LogoWrapper>
-            <Logo/>
-            <LogoText/>
+            <Logo />
+            <LogoText />
           </LogoWrapper>
         </NextLink>
         <NavItemList>
@@ -90,7 +90,7 @@ export default function Navbar({ items }: NavbarProps) {
   );
 }
 
-function NavItem({ href, title, outlined, faq, price}: SingleNavItem) {
+function NavItem({ href, title, outlined, faq, price, black }: SingleNavItem) {
   const { setIsModalOpened } = useNewsletterModalContext();
 
   function showNewsletterModal() {
@@ -98,20 +98,23 @@ function NavItem({ href, title, outlined, faq, price}: SingleNavItem) {
   }
 
   if (outlined) {
-    return <CustomButton href='/contact'>{title}</CustomButton>;
-  }
-  else if (price) {
+    return <CustomButton href="/contact">{title}</CustomButton>;
+  } else if (black) {
+    return <CustomButtonBlack href="/contact">{title}</CustomButtonBlack>;
+  } else if (price) {
     return (
       <NavItemWrapper outlined={outlined}>
-      <NextLink href='/#pricetable' passHref>
-        <a>{title}</a>
-      </NextLink>
-    </NavItemWrapper>
+        <NextLink href="/#pricetable" passHref>
+          <a>{title}</a>
+        </NextLink>
+      </NavItemWrapper>
     );
-  }
-
-  else if (faq) {
-    return <CustomButtonFaq brand>{title}</CustomButtonFaq>;
+  } else if (faq) {
+    return (
+      <CustomButtonFaq brand href="/">
+        {title}
+      </CustomButtonFaq>
+    );
   }
 
   return (
@@ -123,9 +126,25 @@ function NavItem({ href, title, outlined, faq, price}: SingleNavItem) {
   );
 }
 
+
 const CustomButton = styled(Button)`
   padding: 0.75rem 1.5rem;
   line-height: 1.8;
+`;
+
+const CustomButtonBlack = styled(Button)`
+  padding: 0.75rem 1.5rem;
+  line-height: 1.8;
+  color: rgb(var(--textSecondary));
+  background-color: rgb(var(--blackRgb));
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  &:hover {
+    background-color: rgb(var(--blackRgb), 0.8);
+    transition: background-color 0.2s;
+  }
 `;
 
 const CustomButtonFaq = styled(Button)`
@@ -153,6 +172,7 @@ const LogoWrapper = styled.a`
   display: flex;
   margin-right: auto;
   text-decoration: none;
+  align-items: center;
 
   color: rgb(var(--logoColor));
 `;

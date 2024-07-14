@@ -6,16 +6,16 @@ import BasicSection from 'components/BasicSection';
 import Container from 'components/Container';
 import InfoBox from 'components/InfoBox';
 import { EnvVars } from 'env';
+import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
 // import Cta from 'views/HomePage/Cta';
 // import Features from 'views/HomePage/Features';
 // import FeaturesGallery from 'views/HomePage/FeaturesGallery';
-import Hero from 'views/HomePage/Hero';
+import HeroNew from 'views/HomePage/HeroNew';
 import Partners from 'views/HomePage/Partners';
 // import ScrollableBlogPosts from 'views/HomePage/ScrollableBlogPosts';
 // import Testimonials from 'views/HomePage/Testimonials';
 // import { size } from 'lodash';
-import HeroNew from 'views/HomePage/HeroNew';
 import PricingTablesSection from 'views/PricingPage/PricingTablesSection';
 
 export default function Homepage({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -35,8 +35,8 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
         <WhiteBackgroundContainer>
           <Partners />
           <Container>
-            <div id='pricetable'>
-            <PricingTablesSection />
+            <div id="pricetable">
+              <PricingTablesSection />
             </div>
           </Container>
           <BasicSection
@@ -46,7 +46,7 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
             overTitle="절차안내"
             reversed
           >
-            <p style={{ fontSize: '24px' }}>복잡한 제작과정, 후와 스튜디오만의 체계적 절차로 쉽게 진행하세요.</p>
+            <p>복잡한 제작과정, 후와 스튜디오만의 체계적 절차로 쉽게 진행하세요.</p>
           </BasicSection>
           <InfoBoxContainer>
             <InfoBox
@@ -84,30 +84,32 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
   );
 }
 
+
+
 const InfoBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.5rem;
+
+  ${media('<=tablet')} {
+    display: none;
+  }
 `;
 const HomepageWrapper = styled.div`
   & > :last-child {
-    margin-bottom: 15rem;
+    margin-bottom: 5rem;
   }
 `;
 
 const DarkerBackgroundContainer = styled.div`
   background: var(--black);
-  margin-bottom: 15rem;
   & > *:not(:first-child) {
     margin-top: 15rem;
   }
 `;
 
 const WhiteBackgroundContainer = styled.div`
-  background: rgb(var(--secondBackground));
-
   & > :last-child {
-    padding-bottom: 15rem;
   }
 
   & > *:not(:first-child) {

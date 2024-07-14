@@ -3,13 +3,15 @@ import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import BasicSection from 'components/BasicSection';
 import PricingCard from 'components/PricingCard';
+import { media } from 'utils/media';
 
 export default function PricingTablesSection() {
   return (
     <Wrapper>
-      <BasicSection imageUrl='' title='MVP, 홈페이지, 브랜드' title2='원스톱으로 해결하세요.' overTitle='비용 안내'>
+      <NewBasicSection imageUrl='' title='MVP, 홈페이지, 브랜드 원스톱으로 해결하세요.' title2='' overTitle='비용 안내' mergeTitle={false} >
         <p>투명한 가격 정찰제로 예산에 맞는 플랜을 선택하세요.</p>
-      </BasicSection>
+      </NewBasicSection>
+
       <AutofitGrid>
         <PricingCard
           title="MVP 랜딩페이지"
@@ -75,5 +77,11 @@ export default function PricingTablesSection() {
 const Wrapper = styled.div`
   & > *:not(:first-child) {
     margin-top: 4rem;
+  }
+`;
+
+const NewBasicSection = styled(BasicSection)`
+  ${media('<=tablet')} {
+    
   }
 `;

@@ -6,21 +6,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import Container from 'components/Container';
 import { media } from 'utils/media';
 
-const PARTNER_LOGOS = [
-  'logoipsum-logo-1.svg',
-  'logoipsum-logo-2.svg',
-  'logoipsum-logo-3.svg',
-  'logoipsum-logo-4.svg',
-  'logoipsum-logo-5.svg',
-  'logoipsum-logo-6.svg',
-  'logoipsum-logo-7.svg',
-];
+const PARTNER_LOGOS = ['moster-logo.png', 'doing-logo.png', 'tomorrow-logo.png', 'iapple-logo.png', 'happy-logo.png', 'blue-logo.png'];
 
 export default function Partners() {
   return (
     <PartnersWrapper>
-      <Title>이미 수많은 기업이<br />
-      후와 스튜디오를 선택했습니다.</Title>
+      <Title>
+        이미 수많은 기업이
+        <br />
+        후와 스튜디오를 선택했습니다.
+      </Title>
       <Swiper
         modules={[Autoplay]}
         slidesPerView={6}
@@ -30,14 +25,14 @@ export default function Partners() {
         speed={3000}
         breakpoints={{
           320: { slidesPerView: 2 },
-          768: { slidesPerView: 4 },
+          768: { slidesPerView: 3 },
           1025: { slidesPerView: 6 },
         }}
         className="swiper-wrapper"
       >
         {PARTNER_LOGOS.map((logo) => (
           <SwiperSlide key={logo}>
-            <NextImage src={'/partners/' + logo} alt={normalizePartnerLogoName(logo)} width={128} height={128} />
+            <NextImage src={'/partners/' + logo} alt={normalizePartnerLogoName(logo)} width={160} height={120} layout="fixed" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -46,22 +41,27 @@ export default function Partners() {
 }
 
 function normalizePartnerLogoName(logo: string) {
-  return logo.replace('.svg', '');
+  return logo.replace('.png', '');
 }
 
 const Title = styled.h3`
-  font-size: 5.3rem;
+  font-size: 4rem;
   letter-spacing: 0.02em;
-  margin-bottom: 2rem;
+  margin-bottom: 155px;
   text-align: left;
   opacity: 0.8;
+  line-height: 1.5;
 
   ${media('<=desktop')} {
     line-height: 1.5;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+
   }
 `;
 
 const PartnersWrapper = styled(Container)`
+  padding-top: 15rem;
   .swiper-wrapper {
     will-change: transform;
     transition-timing-function: linear;

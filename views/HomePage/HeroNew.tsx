@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import Logo from 'components/Logo';
+import { media } from 'utils/media';
 
 export default function HeroNew() {
   return (
@@ -26,6 +27,7 @@ const ContainerDark = styled(Container)`
   background-color: var(--black);
   color: white;
   padding: 5rem 0;
+  item-align: center;
 `;
 
 const StudioWrapper = styled.div`
@@ -35,6 +37,13 @@ const StudioWrapper = styled.div`
   color: white;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 type CircleProps = {
@@ -53,6 +62,10 @@ const Circle = styled.div<CircleProps>`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+
+    ${media('<=tablet')} {
+      height: 70%;
+    }
   `}
   ${({ size }) =>
     size === 'small' &&
@@ -62,6 +75,11 @@ const Circle = styled.div<CircleProps>`
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
+
+    ${media('<=tablet')} {
+      height: 40%;
+      top: 15%;
+    }
   `}
 `;
 
@@ -72,6 +90,13 @@ const LogoCenter = styled(Logo)`
   transform: translate(-50%, -50%);
   width: 400px;
   height: 400px;
+
+  ${media('<=tablet')} {
+      top: 35%;
+      width: 200px;
+      height: 200px;
+      line-height: 0.9;
+}
 `;
 
 const Heading = styled.h1`
@@ -79,12 +104,18 @@ const Heading = styled.h1`
   position: absolute;
   background-color: rgba(0, 0, 0, 1);
   text-align: center;
-  top: 20%;
+  top: 10%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-size: 8rem;
   margin: 0;
   padding: 1rem;
+  ${media('<=tablet')} {
+      font-size: 4rem;
+      padding: 0;
+      width: 100%;
+      display: inline;
+    }
 `;
 
 const Description = styled.p`
@@ -100,4 +131,10 @@ const Description = styled.p`
   margin: 0;
   white-space: pre-line;
   padding: 1rem;
+  ${media('<=tablet')} {
+      font-size: 1.5rem;
+      width: 100%;
+      bottom: 45%;
+      padding: 0;
+}
 `;

@@ -31,8 +31,9 @@ export const GlobalStyle = createGlobalStyle`
 
 .next-light-theme {
   --background: 251,251,253;
+  --newBackground: 255,255,255;
   --secondBackground: 255,255,255;
-  --text: 10,18,30;
+  --text: 0,0,0;
   --textSecondary: 255,255,255;
   --primary: 22,115,255; 
   --secondary: 10,18,30;
@@ -48,6 +49,7 @@ export const GlobalStyle = createGlobalStyle`
 
 .next-dark-theme {
   --background: 26,32,44;
+  --newBackground: 26,32,44;
   --secondBackground: 45,55,72;
   --text: 237,237,238;
   --textSecondary: 255,255,255;
@@ -67,6 +69,9 @@ export const GlobalStyle = createGlobalStyle`
   --huwaBrand: #FFD166;
   --huwaBrandRgb: 255,209,102;
   --black: #000;
+  --blackRgb: 0,0,0;
+  --white: #fff;
+  --whiteRgb: 255,255,255;
 
   --font: 'Pretendard-Regular', sans-serif;
   
@@ -139,7 +144,7 @@ body {
   line-height: 1.5;
   font-family: var(--font);
   color: rgb(var(--text));
-  background: rgb(var(--background));
+  background: rgb(var(--newBackground));
   font-feature-settings: "kern";
 }
 

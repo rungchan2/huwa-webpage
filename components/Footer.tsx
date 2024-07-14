@@ -1,10 +1,11 @@
 import NextLink from 'next/link';
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
+// import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
+import { SocialIcon } from 'react-social-icons';
 import styled from 'styled-components';
 import Container from 'components/Container';
-import { media } from 'utils/media';
 import LogoWhite from 'components/LogoWhite';
 import LogowhiteText from 'components/LogoWhiteText';
+import { media } from 'utils/media';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -39,34 +40,20 @@ export default function Footer() {
       <Container>
         <ListContainer>
           <LogoContainer>
-            <LogoWhite/>
-            <LogowhiteText/>
+            <LogoWhite />
+            <LogowhiteText />
           </LogoContainer>
           {footerItems.map((singleItem) => (
             <FooterList key={singleItem.title} {...singleItem} />
           ))}
         </ListContainer>
         <BottomBar>
-          <ShareBar>
-            <NextLink href="https://www.twitter.com/my-saas-startup" passHref>
-              <a>
-                <TwitterIcon size={30} round={true} />
-              </a>
-            </NextLink>
-
-            <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
-              <a>
-                <FacebookIcon size={30} round={true} />
-              </a>
-            </NextLink>
-
-            <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
-              <a>
-                <LinkedinIcon size={30} round={true} />
-              </a>
-            </NextLink>
-          </ShareBar>
           <Copyright>&copy; Copyright 몬스터 협동조합</Copyright>
+          <ShareBar>
+            <SocialIcon url="https://www.instagram.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
+            <SocialIcon url="https://www.facebook.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
+            <SocialIcon url="https://x.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
+          </ShareBar>
         </BottomBar>
       </Container>
     </FooterWrapper>
@@ -100,12 +87,16 @@ const LogoContainer = styled.div`
   align-items: top;
   gap: 1rem;
   padding: 0 10rem 0 0;
+
+  ${media('<=tablet')} {
+    padding: 0 0 8rem 0;
+  }
 `;
 
 const FooterWrapper = styled.div`
   padding-top: 10rem;
   padding-bottom: 4rem;
-  background: rgb(var(--secondary));
+  background: rgb(var(--blackRgb));
   color: rgb(var(--textSecondary));
 `;
 
@@ -156,7 +147,13 @@ const ShareBar = styled.div`
   & > *:not(:first-child) {
     margin-left: 1rem;
   }
-    display: none;
+  ${media('<=tablet')} {
+    margin-top: 4rem;
+  }
+
+  ${media('<=phone')} {
+    margin-top: 4rem;
+  }
 `;
 
 const Copyright = styled.p`
@@ -167,7 +164,7 @@ const Copyright = styled.p`
 const BottomBar = styled.div`
   margin-top: 6rem;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
 
   ${media('<=tablet')} {

@@ -12,9 +12,27 @@ export interface BasicSectionProps {
   title2: string;
   overTitle: string;
   reversed?: boolean;
+  mergeTitle?: boolean;
 }
 
-export default function BasicSection({ imageUrl, title, title2, overTitle, reversed, children }: PropsWithChildren<BasicSectionProps>) {
+export default function BasicSection({
+  imageUrl,
+  title,
+  title2,
+  overTitle,
+  reversed,
+  children,
+  mergeTitle,
+}: PropsWithChildren<BasicSectionProps>) {
+
+  if (mergeTitle === true) {
+    title = `${title} ${title2}`;
+    title2 = '';
+  } else {
+    title = `${title}`
+    title2 = `${title2}`
+  }
+
   return (
     <BasicSectionWrapper reversed={reversed}>
       {imageUrl ? (
@@ -24,7 +42,8 @@ export default function BasicSection({ imageUrl, title, title2, overTitle, rever
       ) : null}
       <ContentContainer>
         <CustomOverTitle>{overTitle}</CustomOverTitle>
-        <Title>{title}</Title><br/>
+        <Title>{title}</Title>
+        <br />
         {title2 ? <Title2>{title2}</Title2> : null}
         <RichText>{children}</RichText>
       </ContentContainer>
@@ -39,8 +58,8 @@ const Title = styled.h1`
   letter-spacing: -0.03em;
 
   ${media('<=tablet')} {
-    font-size: 4rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
 `;
 
@@ -65,9 +84,12 @@ const CustomOverTitle = styled(OverTitle)`
   &::before {
     display: none;
   }
+  
+  ${media('<=tablet')} {
+  margin-bottom: 2rem;
+  }
 `;
 export { CustomOverTitle };
-
 
 const ImageContainer = styled.div`
   flex: 1;
@@ -95,9 +117,14 @@ const ImageContainer = styled.div`
 
 const ContentContainer = styled.div`
   flex: 1;
+
+  ${media('<=tablet')} {
+    
+  }
 `;
 
 type Props = Pick<BasicSectionProps, 'reversed'>;
+// BasicSectionWrapper 컴포넌트를 정의합니다.
 const BasicSectionWrapper = styled(Container)`
   display: flex;
   align-items: center;

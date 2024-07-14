@@ -6,6 +6,10 @@ const RichText = styled.div`
   opacity: 0.8;
   line-height: 1.6;
 
+  ${media('<=tablet')} {
+    font-size: 1.75rem;
+  }
+
   ol,
   ul {
     list-style: none;
