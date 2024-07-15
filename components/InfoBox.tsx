@@ -34,7 +34,7 @@ const CustomContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2rem;
   flex-wrap: nowrap;
 `;
 

@@ -43,7 +43,9 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
       </PriceContainer>
       <Price>{children}</Price>
       <ButtonContainer>
-        <CustomButton href='/contact' brand>견적서 요청</CustomButton>
+        <CustomButton href="/contact" brand>
+          견적서 요청
+        </CustomButton>
       </ButtonContainer>
     </Wrapper>
   );
@@ -76,9 +78,13 @@ const Title = styled.h3`
   text-transform: capitalize;
   text-align: left;
 
+  ${media('<=desktop')} {
+    font-size: 3rem;
+  }
+
   ${media('<=tablet')} {
-      font-size: 2.7rem;
-    }
+    font-size: 2.7rem;
+  }
 `;
 
 const Description = styled.p`
@@ -109,12 +115,20 @@ const Price = styled.div`
     font-size: 2rem;
     font-weight: normal;
   }
-    ${media('<=tablet')} {
+
+  ${media('<=desktop')} {
+    font-size: 3rem;
+    span {
+      font-size: 1.5rem;
+    }
+  }
+  ${media('<=tablet')} {
     font-size: 2.5rem;
 
     span {
-      font-size: 1.7rem;}
+      font-size: 1.7rem;
     }
+  }
 `;
 
 const CustomRichText = styled(RichText)`
@@ -156,6 +170,12 @@ const CustomButton = styled(Button)`
   border-radius: 1rem;
   padding: 1.4rem 2rem;
   margin-top: 1.5rem;
+
+  ${media('<=desktop')} {
+    width: 70%;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.8rem;
+  }
 
   ${media('<=tablet')} {
     width: 100px;

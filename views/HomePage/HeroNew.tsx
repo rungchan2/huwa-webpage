@@ -23,7 +23,7 @@ export default function HeroNew() {
 }
 
 const ContainerDark = styled(Container)`
-  height: 100vh;
+  height: 100dvh;
   background-color: var(--black);
   color: white;
   padding: 5rem 0;
@@ -100,11 +100,12 @@ const LogoCenter = styled(Logo)`
 `;
 
 const Heading = styled.h1`
-  display: inline-block;
+  display: inline;
+  width: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 1);
   text-align: center;
-  top: 10%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-size: 8rem;
