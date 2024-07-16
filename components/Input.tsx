@@ -1,9 +1,23 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import {media} from 'utils/media';
+import { media } from 'utils/media';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+type InputProps = {
   label?: string;
+  children?: React.ReactNode;
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+};
+
+export default function Input({ label, children, placeholder, ...props }: InputProps) {
+  return (
+    <InputWrapper>
+      {label && <InputLabel>{label}</InputLabel>}
+      <StyledInput {...props} />
+      {children}
+    </InputWrapper>
+  );
 }
 
 const InputWrapper = styled.div`
@@ -22,7 +36,6 @@ const InputLabel = styled.label`
     content: '*';
     color: red;
     margin-left: 2px;
-
   }
 
   ${media('<=tablet')} {
@@ -48,18 +61,6 @@ const StyledInput = styled.input`
   }
   ${media('<=tablet')} {
     font-size: 1.2rem;
-      padding: 12px;
-
+    padding: 12px;
   }
 `;
-
-const Input: React.FC<PropsWithChildren<InputProps>> = ({ label, children, ...props }) => (
-  <InputWrapper>
-    {label && <InputLabel>{label}</InputLabel>}
-    {null}
-    <StyledInput {...props} />
-    {children}
-  </InputWrapper>
-);
-
-export default Input;

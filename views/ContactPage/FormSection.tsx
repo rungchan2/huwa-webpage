@@ -1,12 +1,11 @@
+import { DevTool } from '@hookform/devtools';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import Button from 'components/Button';
-import Input from 'components/Input';
 import MailSentState from 'components/MailSentState';
 import SectionTitle from 'components/SectionTitle';
-import Textarea from 'components/Textarea';
 import { media } from 'utils/media';
 
 interface EmailPayload {
@@ -21,24 +20,22 @@ interface EmailPayload {
 }
 
 export default function FormSection() {
-  // 이메일 전송 성공 여부를 저장하는 상태 변수
   const [hasSuccessfullySentMail, setHasSuccessfullySentMail] = useState(false);
-  // 이메일 전송 실패 여부를 저장하는 상태 변수
   const [hasErrored, setHasErrored] = useState(false);
-  // react-hook-form 라이브러리의 register, handleSubmit, formState을 가져옴
-  const { register, handleSubmit, formState } = useForm();
-  // formState에서 필요한 상태 변수들을 추출
+
+  const { register, handleSubmit, formState, control } = useForm();
   const { isSubmitSuccessful, isSubmitting, isSubmitted, errors } = formState;
+
   console.log(isSubmitSuccessful, isSubmitting, isSubmitted, errors);
 
   async function onSubmit(payload: EmailPayload) {
     try {
-      const res = await fetch('../../pages/api.', {
+      const res = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ subject: 'Email from contact form', ...payload }),
+        body: JSON.stringify({ subject: '후와 문의가 도착했습니다.', ...payload }),
       });
 
       if (res.status !== 204) {
@@ -80,33 +77,42 @@ export default function FormSection() {
           <InputGroup>
             <InputStack>
               {errors.company && <ErrorMessage>회사/단체명은 필수입니다</ErrorMessage>}
-              <Input
-                label="회사/단체명"
-                placeholder="ex) 후와 스튜디오"
-                id="company"
-                disabled={isDisabled}
-                {...register('company', { required: true })}
-              />
+              <InputWrapper>
+                <InputLabel>회사/단체명</InputLabel>
+                <StyledInput
+                  {...register('company', { required: true })}
+                  disabled={isDisabled}
+                  id="company"
+                  name="company"
+                  placeholder="ex) 후와 스튜디오"
+                />
+              </InputWrapper>
             </InputStack>
             <InputStack>
               {errors.name && <ErrorMessage>성함/직책은 필수입니다</ErrorMessage>}
-              <Input
-                label="성함/직책"
-                placeholder="ex) 김철수/디자인"
-                id="name"
-                disabled={isDisabled}
-                {...register('name', { required: true })}
-              />
+              <InputWrapper>
+                <InputLabel>성함/직책</InputLabel>
+                <StyledInput
+                  {...register('name', { required: true })}
+                  disabled={isDisabled}
+                  id="name"
+                  name="name"
+                  placeholder="ex) 김철수/디자인"
+                />
+              </InputWrapper>
             </InputStack>
             <InputStack>
               {errors.contact && <ErrorMessage>연락처는 필수입니다</ErrorMessage>}
-              <Input
-                label="연락처"
-                placeholder="ex) 010-1234-5678"
-                id="contact"
-                disabled={isDisabled}
-                {...register('contact', { required: true })}
-              />
+              <InputWrapper>
+                <InputLabel>연락처</InputLabel>
+                <StyledInput
+                  {...register('contact', { required: true })}
+                  disabled={isDisabled}
+                  id="contact"
+                  name="contact"
+                  placeholder="ex) 010-1234-5678"
+                />
+              </InputWrapper>
             </InputStack>
           </InputGroup>
         </Section>
@@ -127,63 +133,75 @@ export default function FormSection() {
 
               <ServiceOptions>
                 <ServiceOption>
-                  <input type="radio" id="mvp" value="MVP 랜딩페이지" {...register('service', { required: true })} />
+                  <input type="radio" id="service" value="MVP 랜딩페이지" {...register('service', { required: true })} />
                   <label htmlFor="mvp">MVP 랜딩페이지</label>
                 </ServiceOption>
                 <ServiceOption>
-                  <input type="radio" id="fullpage" value="일반형 홈페이지" {...register('service')} />
+                  <input type="radio" id="service" value="일반형 홈페이지" {...register('service')} />
                   <label htmlFor="fullpage">일반형 홈페이지</label>
                 </ServiceOption>
                 <ServiceOption>
-                  <input type="radio" id="brand" value="브랜드 홈페이지" {...register('service')} />
+                  <input type="radio" id="service" value="브랜드 홈페이지" {...register('service')} />
                   <label htmlFor="brand">브랜드 홈페이지</label>
                 </ServiceOption>
                 <ServiceOption>
-                  <input type="radio" id="other" value="기타 요청" {...register('service')} />
+                  <input type="radio" id="service" value="기타 요청" {...register('service')} />
                   <label htmlFor="other">기타 요청</label>
                 </ServiceOption>
               </ServiceOptions>
             </ServiceSelection>
             <InputStack>
-              <Input
-                label="[보유시] 운영중인 사이트 URL"
-                placeholder="[보유시] 운영중인 사이트 URL"
-                id="url"
-                disabled={isDisabled}
-                {...register('url')}
-              />
+              <InputWrapper>
+                <InputLabel>[보유시] 운영중인 사이트 URL</InputLabel>
+                <StyledInput
+                  {...register('url', { required: true })}
+                  disabled={isDisabled}
+                  id="url"
+                  name="url"
+                  placeholder="ex) [보유시] 운영중인 사이트 URL"
+                />
+              </InputWrapper>
             </InputStack>
             <InputStack>
               {errors.referenceSite && <ErrorMessage>참고 사이트는 필수입니다</ErrorMessage>}
-              <Input
-                label="참고 사이트"
-                placeholder="ex) https://huwastudio.co.kr"
-                id="referenceSite"
-                disabled={isDisabled}
-                {...register('referenceSite', { required: true })}
-              />
+              <InputWrapper>
+                <InputLabel>참고 사이트</InputLabel>
+                <StyledInput
+                  {...register('referenceSite', { required: true })}
+                  disabled={isDisabled}
+                  id="referenceSite"
+                  name="referenceSite"
+                  placeholder="ex) https://huwastudio.co.kr"
+                />
+              </InputWrapper>
             </InputStack>
             <InputStack>
               {errors.description && <ErrorMessage>회사 및 서비스 설명은 필수입니다</ErrorMessage>}
-              <Textarea
-                label="요구사항"
-                placeholder="요구사항, 홈페이지 제작에 필요한 내용을 자유롭게 적어주세요. 문의를 상세하게 남겨 주실수록 더욱 정확한 상담을 받을 수 있습니다."
-                id="description"
-                disabled={isDisabled}
-                {...register('description', { required: true })}
-              />
+              <TextareaWrapper>
+                <TextareaLabel>요구사항</TextareaLabel>
+                <StyledTextarea
+                  id="description"
+                  disabled={isDisabled}
+                  {...register('description', { required: true })}
+                  placeholder="요구사항, 홈페이지 제작에 필요한 내용을 자유롭게 적어주세요. 문의를 상세하게 남겨 주실수록 더욱 정확한 상담을 받을 수 있습니다."
+                />
+              </TextareaWrapper>
             </InputStack>
-            <MeetingOptions>
-              <MeetingLabel>사전 협의 미팅 여부*</MeetingLabel>
-              <MeetingOption>
-                <input type="radio" id="meeting-yes" value="미팅 요청" {...register('meeting')} />
-                <label htmlFor="meeting-yes">미팅 요청</label>
-              </MeetingOption>
-              <MeetingOption>
-                <input type="radio" id="meeting-no" value="미요청" {...register('meeting')} />
-                <label htmlFor="meeting-no">미요청</label>
-              </MeetingOption>
-            </MeetingOptions>
+
+            <ServiceSelection>
+              <ServiceLabel>사전 협의 미팅 여부</ServiceLabel>
+
+              <ServiceOptions>
+                <ServiceOption>
+                  <input type="radio" id="meeting" value="미팅 요청" {...register('meeting', { required: true })} />
+                  <label htmlFor="meeting-yes">미팅 요청</label>
+                </ServiceOption>
+                <ServiceOption>
+                  <input type="radio" id="meeting" value="미요청" {...register('meeting')} />
+                  <label htmlFor="meeting-no">미요청</label>
+                </ServiceOption>
+              </ServiceOptions>
+            </ServiceSelection>
           </InputGroup>
         </Section>
 
@@ -191,9 +209,95 @@ export default function FormSection() {
           작성 완료
         </SubmitButton>
       </Form>
+      <DevTool control={control} />
     </Wrapper>
   );
 }
+
+const InputWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+`;
+const InputLabel = styled.label`
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: var(--text);
+
+  &::after {
+    content: '*';
+    color: red;
+    margin-left: 2px;
+  }
+
+  ${media('<=tablet')} {
+    font-size: 1.2rem;
+  }
+`;
+const StyledInput = styled.input`
+  width: 100%;
+  padding: 24px 12px 24px;
+  font-size: 18px;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  background-color: white;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #999;
+  }
+  ${media('<=tablet')} {
+    font-size: 1.2rem;
+    padding: 12px;
+  }
+`;
+
+const TextareaWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  background-color: white;
+`;
+
+const TextareaLabel = styled.label`
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #333;
+
+  &::after {
+    content: '*';
+    color: red;
+    margin-left: 2px;
+  }
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 100%;
+  min-height: 200px;
+  padding: 48px 16px 12px;
+  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  resize: vertical;
+  font-size: 18px;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const CustomSectionTitle = styled(SectionTitle)`
   margin-bottom: 4rem;
@@ -263,9 +367,9 @@ const ServiceLabel = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
-   ${media('<=tablet')} {
+  ${media('<=tablet')} {
     font-size: 2em;
-   }
+  }
 `;
 
 const ServiceButton = styled(Button)`
@@ -311,44 +415,6 @@ const ServiceOption = styled.div`
     font-size: 1.5rem;
   }
 `;
-
-const MeetingLabel = styled.div`
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-size: 2.25rem;
-  ${media('<=tablet')} {
-    font-size: 2rem;
-  }
-`;
-
-
-const MeetingOptions = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 100%;
-  justify-content: space-between;
-  max-width: 800px;
-  ${media('<=tablet')} {
-    display: grid;
-  }
-`;
-
-const MeetingOption = styled.div`
-  display: flex;
-  align-items: left;
-  gap: 0.2rem;
-  font-size: 2.25rem;
-  input {
-    cursor: pointer;
-    width: 2rem;
-  }
-
-  ${media('<=tablet')} {
-    font-size: 1.5rem;
-  }
-`;
-
 
 const SubmitButton = styled(Button)`
   padding: 1rem 3rem;

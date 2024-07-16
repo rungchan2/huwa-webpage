@@ -21,12 +21,12 @@ export default function Page({ title, description, children }: PropsWithChildren
         <meta name="description" content={description} />
       </Head>
       <Wrapper>
-        <HeaderContainer>
+        {/* <HeaderContainer>
           <Container>
             <Title>{title}</Title>
             {description && <Description>{description}</Description>}
           </Container>
-        </HeaderContainer>
+        </HeaderContainer> */}
         <Container>
           <ChildrenWrapper>{children}</ChildrenWrapper>
         </Container>

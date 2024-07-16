@@ -51,7 +51,7 @@ export default function NewsletterModal({ onClose }: NewsletterModalProps) {
                         value={email}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         placeholder="Enter your email..."
-                        required
+                        
                       />
                       <CustomButton as="button" type="submit" disabled={hasSignedUp}>
                         Submit

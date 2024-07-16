@@ -5,13 +5,14 @@ interface BasicCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  href?: string;
 }
 
-export default function BasicCard({ title, description, imageUrl }: BasicCardProps) {
+export default function BasicCard({ title, description, imageUrl, href }: BasicCardProps) {
   return (
-    <Card>
+    <Card onClick={() => window.open(href, '_blank')}>
       <ImageWrapper>
-        <NextImage src={imageUrl} layout="fill" objectFit="fill" alt={title} />
+        <NextImage src={imageUrl} layout="fill" objectFit="fill" alt={title}  />
       </ImageWrapper>
       <TextWrapper>
         <Title>{title}</Title>
@@ -28,7 +29,13 @@ font-size: 1.8rem;
   align-items: left;
   width: 100%;
   max-width: 300px;
-  margin: 1rem;
+  margin: auto;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: transform 0.5s;
+  }
 `;
 
 const ImageWrapper = styled.div`
