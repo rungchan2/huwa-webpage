@@ -124,10 +124,8 @@ export default function FormSection() {
             <ServiceSelection>
               <ServiceLabel>
                 서비스 선택
-                <ServiceButton>
-                  <Link href="/#pricetable" passHref>
+                <ServiceButton href='/#pricetable'>
                     상세 보기
-                  </Link>
                 </ServiceButton>
               </ServiceLabel>
 
@@ -213,6 +211,7 @@ export default function FormSection() {
     </Wrapper>
   );
 }
+
 
 const InputWrapper = styled.div`
   width: 100%;
@@ -374,7 +373,7 @@ const ServiceLabel = styled.div`
 
 const ServiceButton = styled(Button)`
   background-color: #ffc107;
-  color: white;
+  color: var(--text);
   font-size: 1.5rem;
   border: none;
   padding: 0.3rem 0.6rem;

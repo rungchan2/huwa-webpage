@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import mailimage from '../public/mailimage.png';
 import SectionTitle from './SectionTitle';
+import mailimage from '../public/mailimage.png';
  
 export default function MailSentState() {
   return (
@@ -17,6 +17,8 @@ export default function MailSentState() {
 
 const Wrapper = styled.div`
   flex: 1;
+  flex-direction: column;
+  display: flex;
   align-items: center;
 
   & > *:not(:first-child) {
@@ -31,4 +33,5 @@ const Wrapper = styled.div`
     display: block;
 
     }
+
 `;

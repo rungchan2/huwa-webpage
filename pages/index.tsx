@@ -24,9 +24,14 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
       <Head>
         <title>{EnvVars.SITE_NAME}</title>
         <meta
-          name="description"
-          content="Tempor nostrud velit fugiat nostrud duis incididunt Lorem deserunt est tempor aute dolor ad elit."
+          name="huwa-home"
+          content="후와 스튜디오는 브랜드 디자인, 홈페이지 제작, 마케팅 컨설팅을 제공하는 디지털 에이전시입니다."
         />
+        <meta property="og:url" content={EnvVars.URL} />
+        <meta property="og:title" content={EnvVars.SITE_NAME} />
+        <meta property="og:description" content={EnvVars.DESC} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={EnvVars.OG_IMAGES_URL} />
       </Head>
       <HomepageWrapper>
         <DarkerBackgroundContainer>

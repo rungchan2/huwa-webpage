@@ -1,7 +1,9 @@
+import Head from 'next/head';
 import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import BasicCard from 'components/BasicCard';
 import Page from 'components/Page';
+import { EnvVars } from 'env';
 // import SectionTitle from 'components/SectionTitle';
 // import YoutubeVideo from 'components/YoutubeVideo';
 import { media } from 'utils/media';
@@ -45,6 +47,15 @@ const FEATURES = [
 export default function Portfolio() {
   return (
     <Page title="포트폴리오" description="후와 스튜디오와 함께한 브랜드 사례를 확인해 보세요.">
+      <Head>
+        <title>{EnvVars.SITE_NAME}</title>
+        <meta name="huwa-home" content="후와 스튜디오는 브랜드 디자인, 홈페이지 제작, 마케팅 컨설팅을 제공하는 디지털 에이전시입니다." />
+        <meta property="og:url" content={EnvVars.URL} />
+        <meta property="og:title" content={EnvVars.SITE_NAME} />
+        <meta property="og:description" content={EnvVars.DESC} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={EnvVars.OG_IMAGES_URL} />
+      </Head>
       <Wrapper>
         <CustomAutofitGrid>
           {FEATURES.map((singleFeature, idx) => (
