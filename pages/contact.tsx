@@ -17,7 +17,7 @@ export default function ContactPage() {
         <meta property="og:title" content={EnvVars.SITE_NAME} />
         <meta property="og:description" content={EnvVars.DESC} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={EnvVars.OG_IMAGES_URL} />
+        <meta property="og:image:type" content={EnvVars.OG_IMAGES_URL} />
       </Head>
       <ContactContainer>
         <FormSection />
