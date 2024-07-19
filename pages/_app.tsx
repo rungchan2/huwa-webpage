@@ -23,7 +23,7 @@ const navItems: NavItems = [
   { title: 'Portfolio', href: '/portfolio' },
   { title: 'Price', href: '#pricetable', price: true},
   { title: '제작 상담하기', href: '/contact', black: true},
-  { title: '자주 묻는 질문', href: '/', faq: true,},
+  
 ];
 
 

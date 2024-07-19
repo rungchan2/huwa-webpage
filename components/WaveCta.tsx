@@ -28,7 +28,8 @@ export default function WaveCta() {
 
   }, [WaveCta]);
 
-  console.log(" 현재 경로 dddd ", segments[0]);
+  // console.log(" 현재 경로 dddd ", segments);
+  // console.log(" 현재 경로 길이 ", segments.length);
 
 
 
@@ -41,7 +42,7 @@ export default function WaveCta() {
           d="M0,64L80,58.7C160,53,320,43,480,80C640,117,800,203,960,197.3C1120,192,1280,96,1360,48L1440,0L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
         ></path>
       </svg>
-    {media('<=tablet') && segments[0] === 'contact' ? null : <InfoBoxPhone/>}
+    {media('<=tablet') && segments.length !== 0 ? null : <InfoBoxPhone/>}
       <CtaWrapper>
         <Container>
           <Title>후와 스튜디오와 함께 성장하세요.</Title>
