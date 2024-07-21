@@ -1,5 +1,4 @@
-import { PropsWithChildren, useState, } from 'react';
-import { useEffect } from 'react';
+import { PropsWithChildren, useEffect, useState, } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
@@ -13,18 +12,20 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ title, description, benefits, isOutlined, children }: PropsWithChildren<PricingCardProps>) {
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
   const isAnyBenefitPresent = benefits?.length;
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 375) {
+      const pageWidth = window.innerWidth;
+      if (pageWidth < 375) {
         setIsToggled(false);
-      }
-      else {
+      } else {
         setIsToggled(true);
       }
     };
+
+    handleResize(); // Check initial window size
 
     window.addEventListener('resize', handleResize);
 
@@ -60,11 +61,10 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
           </CustomRichText>
         </PriceContainer>
       )}
-
       <Price>{children}</Price>
       <ButtonContainer>
-        {!isToggled && <SeeMoreButton brand onClick={() => setIsToggled(true)}>더보기</SeeMoreButton>}
-        {isToggled && window.innerWidth < 375 && <SeeMoreButton brand onClick={() => setIsToggled(false)}>닫기</SeeMoreButton>}
+        {!isToggled && <SeeMoreButton onClick={() => setIsToggled(true)}>더보기</SeeMoreButton>}
+        {isToggled && <SeeMoreButton onClick={() => setIsToggled(false)}>닫기</SeeMoreButton>}
         <CustomButton href="/contact" brand>
           견적서 요청
         </CustomButton>
@@ -227,8 +227,8 @@ const SeeMoreButton = styled(Button)`
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
   }
-    ${media('<=phone')} {
-
-    }
-    }
+  
+  ${media('>=phone')} {
+    display: none;
+  }
 `;
