@@ -67,4 +67,9 @@ const Description = styled.div`
 const ChildrenWrapper = styled.div`
   margin-top: 10rem;
   margin-bottom: 10rem;
+
+  ${media('<=tablet')} {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
 `;

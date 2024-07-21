@@ -72,6 +72,7 @@ export const GlobalStyle = createGlobalStyle`
   --blackRgb: 0,0,0;
   --white: #fff;
   --whiteRgb: 255,255,255;
+  --iconLightColor: #B5B5B5;
 
   --font: 'Pretendard-Regular', sans-serif;
   

@@ -4,11 +4,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/autoplay';
 
 import { AppProps } from 'next/dist/shared/lib/router/router';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
 import React, { PropsWithChildren } from 'react';
-import { TinaEditProvider } from 'tinacms/dist/edit-state';
+// import { TinaEditProvider } from 'tinacms/dist/edit-state';
 
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
@@ -21,13 +21,14 @@ import { NavItems } from 'types';
 
 const navItems: NavItems = [
   { title: 'Portfolio', href: '/portfolio' },
+  { title: 'Huwa-Log', href: '/blog' },
   { title: 'Price', href: '#pricetable', price: true},
   { title: '제작 상담하기', href: '/contact', black: true},
-  
+  { title: '자주 묻는 질문', href: '/faq', faq: true,},
 ];
 
 
-const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
+// const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

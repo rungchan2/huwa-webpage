@@ -111,7 +111,7 @@ function NavItem({ href, title, outlined, faq, price, black }: SingleNavItem) {
     );
   } else if (faq) {
     return (
-      <CustomButtonFaq brand href="/">
+      <CustomButtonFaq brand href="/faq">
         {title}
       </CustomButtonFaq>
     );

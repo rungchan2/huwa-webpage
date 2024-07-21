@@ -1,4 +1,5 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useState, } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { media } from 'utils/media';
 import Button from './Button';
@@ -12,14 +13,32 @@ interface PricingCardProps {
 }
 
 export default function PricingCard({ title, description, benefits, isOutlined, children }: PropsWithChildren<PricingCardProps>) {
+  const [isToggled, setIsToggled] = useState(false);
   const isAnyBenefitPresent = benefits?.length;
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 375) {
+        setIsToggled(false);
+      }
+      else {
+        setIsToggled(true);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <Wrapper isOutlined={isOutlined}>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <PriceContainer>
-        {isAnyBenefitPresent && (
+      {isToggled && isAnyBenefitPresent && (
+        <PriceContainer>
           <CustomRichText>
             <ul>
               {benefits.map((singleBenefit, idx) => (
@@ -39,10 +58,13 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
               ))}
             </ul>
           </CustomRichText>
-        )}
-      </PriceContainer>
+        </PriceContainer>
+      )}
+
       <Price>{children}</Price>
       <ButtonContainer>
+        {!isToggled && <SeeMoreButton brand onClick={() => setIsToggled(true)}>더보기</SeeMoreButton>}
+        {isToggled && window.innerWidth < 375 && <SeeMoreButton brand onClick={() => setIsToggled(false)}>닫기</SeeMoreButton>}
         <CustomButton href="/contact" brand>
           견적서 요청
         </CustomButton>
@@ -182,4 +204,31 @@ const CustomButton = styled(Button)`
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
   }
+`;
+
+const SeeMoreButton = styled(Button)`
+  width: 50%;
+  font-size: 1.8rem;
+  color: rgb(var(--text));
+  font-color: rgb(var(--text));
+  background: var(--grey);
+  border-radius: 1rem;
+  padding: 1.4rem 2rem;
+  margin-top: 1.5rem;
+
+  ${media('<=desktop')} {
+    width: 70%;
+    font-size: 1.6rem;
+    padding: 1.2rem 1.8rem;
+  }
+
+  ${media('<=tablet')} {
+    width: 100px;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+    ${media('<=phone')} {
+
+    }
+    }
 `;

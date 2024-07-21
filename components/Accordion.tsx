@@ -17,14 +17,8 @@ export default function Accordion({ title, isOpen, children }: PropsWithChildren
       <TitleWrapper>
         <Title>{title}</Title>
         <Icon isActive={isActive}>
-          <svg
-            viewBox="0 0 24 24"
-            focusable="false"
-            className="chakra-icon chakra-accordion__icon css-j2ph2z"
-            aria-hidden="true"
-            preserveAspectRatio="none"
-          >
-            <path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+            <path d="M9.5 16L0.406733 0.25L18.5933 0.249998L9.5 16Z" fill="#FFD166" />
           </svg>
         </Icon>
       </TitleWrapper>
@@ -68,7 +62,7 @@ const Description = styled.div`
 const AccordionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 2rem 0;
   background: rgb(var(--cardBackground));
   box-shadow: var(--shadow-md);
   cursor: pointer;

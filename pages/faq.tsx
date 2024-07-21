@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import Page from 'components/Page';
 import { EnvVars } from 'env';
 import FaqSection from 'views/PricingPage/FaqSection';
-import PricingTablesSection from 'views/PricingPage/PricingTablesSection';
 
 export default function PricingPage() {
   return (
-    <Page title="Pricing" description="Cupidatat et reprehenderit ullamco aute ullamco anim tempor.">
+    <Page title="자주 묻는 질문" description="자주 묻는 질문입니다.">
       <Head>
         <meta name="description" content={EnvVars.DESC} />
         <meta property="og:title" content={EnvVars.SITE_NAME} />
@@ -15,7 +14,6 @@ export default function PricingPage() {
         <meta property="og:image" content={EnvVars.OG_IMAGES_URL} />
       </Head>
       <Wrapper>
-        <PricingTablesSection />
         <FaqSection />
       </Wrapper>
     </Page>
