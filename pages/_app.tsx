@@ -23,10 +23,10 @@ import { NavItems } from 'types';
 
 const navItems: NavItems = [
   { title: 'Portfolio', href: '/portfolio' },
-  { title: 'Huwa-Log', href: '/blog' },
+  // { title: 'Huwa-Log', href: '/blog' },
   { title: 'Price', href: '#pricetable', price: true },
   { title: '제작 상담하기', href: '/contact', black: true },
-  { title: '자주 묻는 질문', href: '/faq', faq: true },
+  // { title: '자주 묻는 질문', href: '/faq', faq: true },
 ];
 
 // const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
