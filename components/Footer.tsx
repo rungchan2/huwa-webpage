@@ -6,6 +6,9 @@ import Container from 'components/Container';
 import LogoWhite from 'components/LogoWhite';
 import LogowhiteText from 'components/LogoWhiteText';
 import { media } from 'utils/media';
+import { IconContext } from 'react-icons';
+import Link from './Link';
+import { RiKakaoTalkFill } from 'react-icons/ri';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -50,9 +53,17 @@ export default function Footer() {
         <BottomBar>
           <Copyright>&copy; Copyright 몬스터 협동조합</Copyright>
           <ShareBar>
-            <SocialIcon url="https://www.instagram.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
-            <SocialIcon url="https://www.facebook.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
-            <SocialIcon url="https://x.com/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
+            <SocialIcon url="https://www.instagram.com/huwa_studio/" bgColor="transparent" style={{ width: '40px', height: '40px' }} />
+            <SocialIcon
+              url="https://www.facebook.com/profile.php?id=61562158051904"
+              bgColor="transparent"
+              style={{ width: '40px', height: '40px' }}
+            />
+            <IconContext.Provider value={{ color: 'white', size: '2.4rem', style: { verticalAlign: 'middle', marginLeft: '5px' } }}>
+              <a href="https://open.kakao.com/o/swqGNCEg" target="_blank">
+                <RiKakaoTalkFill />
+              </a>
+            </IconContext.Provider>
           </ShareBar>
         </BottomBar>
       </Container>

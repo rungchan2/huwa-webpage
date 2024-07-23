@@ -52,14 +52,14 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
             <InfoBox
               number="01"
               title="견적 상담 및 결제"
-              description="문의 설문지를 작성해주시면 전문 매니저와 견적 및 기획 상담을 진행한 후, 계약 및 결제를 진행합니다."
+              description="문의 설문지를 작성해주시면 전문 매니저와 견적 및 기획 상담을 진행한 후, 계약 및 선납금 결제를 진행합니다.."
             />
             <InfoBox
               number="02"
-              title="기획서 전달"
-              description="상담 내용을 토대로 홈페이지 기획을 구성해 디자인 컨셉과 함께 기획서를 작성해 전달합니다."
+              title="과업지시서 전달"
+              description="상담 내용을 토대로 홈페이지 기획을 구성해 디자인 컨셉과 함께 마감 일정이 포함된 과업지시서를 전달합니다."
             />
-            <InfoBox number="03" title="시안 전달" description="홈페이지 시안을 디자인/퍼블리싱 작업하여 실제 사이트 링크로 전달합니다." />
+            <InfoBox number="03" title="시안 전달" description="디자인된 홈페이지 시안을 A/B 두 가지 버전으로 제공해드립니다. 선택된 최종시안으로 퍼블리싱 작업하여 실제 사이트 링크로 전달합니다." />
             <InfoBox
               number="04"
               title="피드백 적용 및 최적화"
@@ -68,7 +68,7 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
             <InfoBox
               number="05"
               title="최종 검수 및 런칭"
-              description="최종검수를 진행하여 오류사항을 확인합니다. 이후 홈페이지 관리 방안과 유지 보수 관련 가이드를 전달합니다."
+              description="최종검수를 진행하여 오류사항을 확인합니다. 이후 계약금에 대한 잔금 결제 및 홈페이지 관리 방안과 유지 보수 관련 가이드를 전달합니다."
             />
           </InfoBoxContainer>
         </WhiteBackgroundContainer>
@@ -83,8 +83,6 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
     </>
   );
 }
-
-
 
 const InfoBoxContainer = styled.div`
   display: flex;

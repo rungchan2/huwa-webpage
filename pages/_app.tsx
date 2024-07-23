@@ -42,17 +42,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" />
       </Head>
       
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LRSLRG7THC" strategy="afterInteractive" />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-05VGYYLCD4" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-LRSLRG7THC');
+          gtag('config', 'G-05VGYYLCD4');
         `}
       </Script>
-
+      
       {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSLRG7THC"></Script>
       <Script id="google-analytics">
         {`
