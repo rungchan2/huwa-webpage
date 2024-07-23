@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="favicon" type="image/png" href="../public/favicon" />
-
+        <meta name="google-site-verification" content="BJsapPqz-n7_yU8kf2p0sipQRhX8I805eFumJ-RKC1A" />
         <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" />
       </Head>
       
@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'G-05VGYYLCD4');
         `}
       </Script>
-      
+
       {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSLRG7THC"></Script>
       <Script id="google-analytics">
         {`
