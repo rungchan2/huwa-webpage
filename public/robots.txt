@@ -1,9 +1,14 @@
 # *
 User-agent: *
 Allow: /
+Allow: /portfolio
+Allow: /blog
+Allow: /contact
+
 
 # Host
 Host: https://huwa-webpage.vercel.app/
 
 # Sitemaps
 Sitemap: https://huwa-webpage.vercel.app/sitemap.xml
+Sitemap: https://huwa-webpage.vercel.app/sitemap-0.xml

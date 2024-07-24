@@ -40,8 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="favicon" type="image/png" href="../public/favicon" />
         <meta name="google-site-verification" content="BJsapPqz-n7_yU8kf2p0sipQRhX8I805eFumJ-RKC1A" />
         <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" />
+        <meta name="naver-site-verification" content="a96cdcaa7e61f58935be09d3dc67282ae0708ac5" />
       </Head>
-      
+
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-05VGYYLCD4" strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
@@ -52,22 +53,17 @@ function MyApp({ Component, pageProps }: AppProps) {
           gtag('config', 'G-05VGYYLCD4');
         `}
       </Script>
-      
-      <Script id='hotjar'>
-        {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+      <Script
+        id="hotjar"
+        dangerouslySetInnerHTML={{
+          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-5Z2X2JX');
-        `}
-      </Script>
-
-
-
-
-
-
+          })(window,document,'script','dataLayer','GTM-5Z2X2JX');`,
+        }}
+      />
 
       {/* <Script async src="https://www.googletagmanager.com/gtag/js?id=G-LRSLRG7THC"></Script>
       <Script id="google-analytics">

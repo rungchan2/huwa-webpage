@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://huwa-webpage.vercel.app</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/contact</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/cookies-policy</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/faq</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/portfolio</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/privacy-policy</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article-2</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article-3</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article-4</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article-5</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article-6</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://huwa-webpage.vercel.app/blog/test-article</loc><lastmod>2024-07-24T08:02:16.861Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/contact</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/cookies-policy</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/faq</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/portfolio</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/privacy-policy</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article-2</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article-3</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article-4</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article-5</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article-6</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://huwa-webpage.vercel.app/blog/test-article</loc><lastmod>2024-07-24T08:52:08.165Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
