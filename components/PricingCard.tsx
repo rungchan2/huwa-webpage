@@ -47,7 +47,9 @@ export default function PricingCard({ title, description, benefits, isOutlined, 
                   key={idx}
                   className={
                     singleBenefit.startsWith('페이지') ||
+                    singleBenefit.startsWith('페이지 (최대높이:3000px)') ||
                     singleBenefit.startsWith('섹션 추가') ||
+                    singleBenefit.startsWith('섹션 추가 (한섹션당 2000px)') ||
                     singleBenefit.startsWith('서비스') ||
                     singleBenefit.startsWith('제작기간')
                       ? 'highlight'
